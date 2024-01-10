@@ -38,7 +38,7 @@ class FntConfig:
             "smooth": 1,
             "aa": 1,
             "padding": (0, 0, 0, 0),
-            "spacing": (1, 1),
+            "spacing": (0, 0),
         }
 
         self.common = {
@@ -132,6 +132,7 @@ class TextureMerger:
     def get_images(self):
         files = os.listdir('.')
         for filename in files:
+            print("filename: ", filename)
             name, ext = filename.split('.')
             if ext.lower() == 'png':
                 if len(name) == 1:
@@ -218,6 +219,7 @@ class FntGenerator:
 if __name__ == '__main__':
     fnt_config = FntConfig()
     full_path = os.path.abspath('.')
+    print("full_path: ", full_path)
     cur_path = full_path.split('/')[-1]
     fnt_generator = FntGenerator(cur_path)
     fnt_generator.gen_fnt()
